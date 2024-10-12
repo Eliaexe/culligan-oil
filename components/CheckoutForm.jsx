@@ -13,6 +13,8 @@ const CheckoutForm = ({ amount }) => {
   const [clientSecret, setClientSecret] = useState("");
   const [loading, setLoading] = useState(false);
 
+  let baseUrl = process.env.LOCAL_URL
+
   useEffect(() => {
     fetch("/api/create-payment-intent", {
       method: "POST",
@@ -53,7 +55,7 @@ const CheckoutForm = ({ amount }) => {
       <Card className="w-full max-w-md mx-auto bg-white text-black">
         <CardContent className="flex items-center justify-center p-4">
           <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-          <span>Loading payment information...</span>
+          <span>Chargement...</span>
         </CardContent>
       </Card>
     );

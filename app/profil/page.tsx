@@ -1,16 +1,16 @@
 "use client"
 
 import { useState } from 'react';
-import Sidebar from '@/components/dashboard/Sidebar';
+import Sidebar from '@/components/profil/Sidebar';
 import Overview from '@/components/dashboard/Overview';
 import ProductsSection from '@/components/dashboard/ProductsSection';
 import OrdersSection from '@/components/dashboard/OrdersSection';
-import CustomersSection from '@/components/dashboard/CustomersSection';
-import DashboardHeader from "@/components/dashboard/DashboardHeader"
+import PersonalDataForm from '@/components/profil/PersonalInformations';
+import ProfilHeader from '@/components/profil/ProfilHeader';
 import { Sheet, SheetContent } from "@/components/ui/sheet";
 
 export default function Dashboard() {
-  const [activeSection, setActiveSection] = useState('overview');
+  const [activeSection, setActiveSection] = useState('orders');
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const toggleMobileMenu = () => setIsMobileMenuOpen(!isMobileMenuOpen);
@@ -19,8 +19,10 @@ export default function Dashboard() {
     switch (activeSection) {
       case 'orders':
         return <OrdersSection />;
+      case 'customers':
+        return <PersonalDataForm />
       default:
-        return <Overview />;
+        return <OrdersSection />;
     }
   };
 
@@ -37,7 +39,7 @@ export default function Dashboard() {
       </div>
       
       <div className="flex-1 flex flex-col overflow-hidden">
-        <DashboardHeader toggleMobileMenu={toggleMobileMenu} />
+        <ProfilHeader />
         <main className="flex-1 overflow-y-auto p-4">
           {renderSection()}
         </main>

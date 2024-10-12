@@ -1,5 +1,4 @@
-'use client'
-import dynamic from 'next/dynamic';
+'use client';
 import Image from "next/image";
 import { useRouter } from 'next/navigation';
 import { Header30 } from '@/components/Header30';
@@ -7,11 +6,11 @@ import { Product12 } from '@/components/Product12';
 import Layout239Client from '@/components/Layout239/Layout239Client';
 import CTA25Client from '@/components/CTA25/CTA25Client';
 import Footer3Client from '@/components/Footer3/Footer3Client'; 
-
-const Navbar1Client = dynamic(() => import("../components/Navbar1/Navbar1Client"), { ssr: false });
+import { Navbar1Client } from "@/components/Navbar1/Navbar1Client";
 
 export default function Home() {
   const router = useRouter();
+  
   const productData = {
     subtitle: "Nos Meilleures Ventes",
     title: "Découvrez Nos Produits Naturels pour la Croissance",
@@ -40,9 +39,9 @@ export default function Home() {
       <Navbar1Client
         logo={{ src: '/logo.png', url: '/', alt: 'Logo Cullinan Oil' }}
         navLinks={[
-          { url: '/about', title: 'À Propos' },
+          { url: '/panier', title: 'Panier' },
           { url: '/contact', title: 'Contact' },
-          { url: '/acceder', title: 'Se Connecter', isButton: true }
+          { url: '/acceder', title: 'Se Connecter', isButton: true } // Button text set to "Se Connecter"
         ]}
       />
       <Header30

@@ -8,7 +8,7 @@ export interface LoginResponse {
 }
 
 export async function doSocialLogin(provider: string) {
-    await signIn(provider, { redirectTo: "/admin/dashboard" });
+    await signIn(provider, { redirectTo: "/dashboard" });
 }
 
 export async function doLogout() {

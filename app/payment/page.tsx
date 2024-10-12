@@ -17,8 +17,8 @@ if (!process.env.NEXT_PUBLIC_STRIPE_PUBLIC_KEY) {
 const CheckoutPage: React.FC = () => {
     const { cart } = useCart(); 
     const calculateTotalAmount = () => {
-        // return cart.reduce((total, item) => total + item.price, 0);
-        return 500;  // Questa è solo un valore statico per il testing, sostituirlo con il calcolo effettivo
+        return cart.reduce((total, item) => total + item.price, 0);
+        // return 500;  // Questa è solo un valore statico per il testing, sostituirlo con il calcolo effettivo
     };
 
     const totalAmount = calculateTotalAmount();

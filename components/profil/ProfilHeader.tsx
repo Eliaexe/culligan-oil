@@ -2,9 +2,8 @@
 
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
 import { Menu } from "lucide-react"
-import Sidebar from "@/components/dashboard/Sidebar"
 
-export default function DashboardHeader() {
+export default function ProfilHeader() {
   return (
     <header className="flex items-center justify-between px-4 h-16 border-b bg-white text-black">
       <div className="flex items-center">
@@ -15,7 +14,7 @@ export default function DashboardHeader() {
             </button>
           </SheetTrigger>
         </Sheet>
-        <h1 className="text-2xl font-bold ml-2">Admin E-commerce</h1>
+        <h1 className="text-2xl font-bold ml-2">Vos Profil</h1>
       </div>
       <button className="px-4 py-2 border border-black hover:bg-black hover:text-white transition">
         Déconnexion

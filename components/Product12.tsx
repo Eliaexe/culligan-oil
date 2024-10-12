@@ -97,7 +97,7 @@ export const Product12: React.FC<Product12Props> = ({
     useEffect(() => {
         const fetchProducts = async () => {
             try {
-                const response = await fetch('http://localhost:3000/api/products'); // Cambia l'URL in base alla tua API
+                const response = await fetch('http://localhost:3000/api/products'); 
                 if (!response.ok) {
                     throw new Error('Errore nel recupero dei prodotti');
                 }

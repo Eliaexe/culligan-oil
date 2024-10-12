@@ -1,5 +1,5 @@
 'use client';
-import { useCart } from '@/contexts/CartContext'; // Usa il custom hook
+import { useCart } from '@/contexts/CartContext'; // Utilise le hook personnalisé
 import Link from 'next/link';
 import Navbar1Client from '@/components/Navbar1/Navbar1Client';
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
@@ -9,12 +9,11 @@ import { Separator } from "@/components/ui/separator";
 import { MinusIcon, PlusIcon, XIcon } from "lucide-react";
 
 export default function Cart() {
-    const { cart, removeFromCart, updateQuantity } = useCart(); // Aggiungi updateQuantity dal contesto
-    console.log(cart);
+    const { cart, removeFromCart, updateQuantity } = useCart(); // Ajoute updateQuantity du contexte
 
     const handleQuantityChange = (itemId: string, newQuantity: number) => {
         if (newQuantity > 0) {
-            updateQuantity(itemId, newQuantity); // Chiama updateQuantity per aggiornare la quantità
+            updateQuantity(itemId, newQuantity); // Appelle updateQuantity pour mettre à jour la quantité
         }
     };
 
@@ -29,7 +28,7 @@ export default function Cart() {
                 ]}
             />
             <div className="container mx-auto px-4 py-8 bg-[#0B0B0B] text-[#FDDD57]">
-                <h1 className="text-2xl font-bold mb-6">Shopping Cart</h1>
+                <h1 className="text-2xl font-bold mb-6">Panier</h1>
 
                 <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
                     <div className="lg:col-span-2">
@@ -47,7 +46,7 @@ export default function Cart() {
                                                 <Button
                                                     variant="outline"
                                                     size="icon"
-                                                    onClick={() => handleQuantityChange(item.id, item.quantity - 1)} // Usa 'id' qui
+                                                    onClick={() => handleQuantityChange(item.id, item.quantity - 1)} // Utilise 'id' ici
                                                     className="text-[#FDDD57]"
                                                 >
                                                     <MinusIcon className="h-4 w-4" />
@@ -61,7 +60,7 @@ export default function Cart() {
                                                 <Button
                                                     variant="outline"
                                                     size="icon"
-                                                    onClick={() => handleQuantityChange(item.id, item.quantity + 1)} // Usa 'id' qui
+                                                    onClick={() => handleQuantityChange(item.id, item.quantity + 1)} // Utilise 'id' ici
                                                     className="text-[#FDDD57]"
                                                 >
                                                     <PlusIcon className="h-4 w-4" />
@@ -83,20 +82,20 @@ export default function Cart() {
                     <div>
                         <Card className="bg-gray-800 border border-gray-600">
                             <CardHeader>
-                                <CardTitle>Order Summary</CardTitle>
+                                <CardTitle>Résumé de la commande</CardTitle>
                             </CardHeader>
                             <CardContent>
                                 <div className="space-y-2">
                                     <div className="flex justify-between">
-                                        <span>Subtotal</span>
+                                        <span>Sous-total</span>
                                         <span>${cart.reduce((acc, item) => acc + item.price * item.quantity, 0).toFixed(2)}</span>
                                     </div>
                                     <div className="flex justify-between">
-                                        <span>Shipping</span>
+                                        <span>Livraison</span>
                                         <span>$0.00</span>
                                     </div>
                                     <div className="flex justify-between">
-                                        <span>VAT</span>
+                                        <span>TVA</span>
                                         <span>$0.00</span>
                                     </div>
                                 </div>
@@ -108,7 +107,7 @@ export default function Cart() {
                             </CardContent>
                             <CardFooter>
                                 <Button className="w-full bg-[#4C6D1C] hover:bg-green-600 text-white">
-                                    <Link href="/checkout">Proceed to Checkout</Link>
+                                    <Link href="/payment">Procéder au paiement</Link>
                                 </Button>
                             </CardFooter>
                         </Card>
@@ -116,6 +115,5 @@ export default function Cart() {
                 </div>
             </div>
         </>
-
     );
 }

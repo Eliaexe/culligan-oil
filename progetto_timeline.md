@@ -39,10 +39,10 @@
     - Utilizzare l'API Context di React o una libreria di gestione dello stato per gestire lo stato del carrello nell'app.
 
 ### 5. Dashboard (1-2 ore)
-- [ ] **Dashboard Amministrativa**:
+- [x] **Dashboard Amministrativa**:
     - Creare una dashboard amministrativa di base che mostri metriche chiave (ad es., vendite totali, numero di ordini).
     - Implementare una semplice funzione di gestione degli utenti, se necessario.
-- [ ] **Dashboard Cliente**:
+- [x] **Dashboard Cliente**:
     - Consentire ai clienti di visualizzare la cronologia degli ordini e i dettagli dell'account.
 
 ## Tardo Pomeriggio: Test e Deploy
